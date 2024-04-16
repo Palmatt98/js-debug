@@ -10,7 +10,7 @@
 *******************************************************************************/
 
 
-// ESERCIZIO 1 (suggerimento: ci sono 6 errori)
+
 const cars = [
     {
         manufacturer: 'Ford',
@@ -84,3 +84,7 @@ console.log(dieselCars);
 
 console.log('Tutte le altre auto');
 console.log(otherCars);
+
+//1- crea 3 array dove nel primo avremo solo macchine a benzina nel secondo solo macchine a diesel e nel terzo la restante parte delle auto
+//2- si: c'è una parentesi al contrario in riga 60 ed è sbagliata la sintassi di arrow function in riga 67, manca la virgola alla parentesi di chiusura a riga 59
+//3- return mancante nell'arrow function con le graffe aperte a riga 143 e le condizioni su auto.type non tenevano conto del case sensistive

@@ -3,19 +3,19 @@ const array = [];
 
 input.addEventListener('keypress', function(event) {
 
-    if (event.code != 'Enter') return;
-    if (input.value == '')     return;
+    if (event.code != 'Enter')   return;
+    if (input.value.length == 0) return;
 
     array.push(input.value);
 
     const li = document.createElement('li');
     li.classList.add('list-group-item');
     li.innerText = input.value;
-    document.querySelector('ul').append(li);
+    document.querySelector('ul').appendChild(li);
 
     let counter = 0;
-    let max     = 1;
     let item    = array[0];
+    let max   = 1;
     const elems = [];
 
     for (let i = 0; i < array.length; i++) {
@@ -23,23 +23,24 @@ input.addEventListener('keypress', function(event) {
 
         if (!elems[val]) {
             elems[val] = 1;
-        } else {
+        } else { 
             elems[val]++;
         }
 
         for (let j = i; j < array.length; j++) {
             if (array[i] == array[j]) {
                 counter++;
-                if (max < counter) {
-                    max  = counter;
-                    item = array[i];
-                }
+                if (max < counter)
+                max  = counter;
+                item = array[i];
             }
         }
+
         counter = 0;
     }
 
-    const alert = document.getElementsByClassName('alert')[0];
+    const alert = document.querySelector('.alert');
+    
 
     alert.classList.remove('d-none');
     alert.classList.add('d-flex');
@@ -48,4 +49,6 @@ input.addEventListener('keypress', function(event) {
     alert.querySelector('span:last-child').innerText = max;
 
     console.log(`${item} trovato ${max} volte`);
+
+    input.value = "";
 });
